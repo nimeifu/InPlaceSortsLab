@@ -53,6 +53,20 @@ public class InPlaceSorts {
         }
     }
 
-    public void selectionSort(x)
+    public int partition(int[] arr,int left,int right)
+    {
+        int pivot=arr[right];
+        int i=arr[left-1];
+        for(int j=left;j<right;j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        arr[right]=arr[i+1];
+        arr[i+1]=pivot;
+        return i+1;
+    }
 }
-
