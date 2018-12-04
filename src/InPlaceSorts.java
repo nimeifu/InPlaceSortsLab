@@ -65,10 +65,21 @@ public class InPlaceSorts {
                 arr[j] = temp;
             }
         }
-        arr[right]=arr[i+1];
-        arr[i+1]=pivot;
+        int temp=arr[i+1];
+        arr[i+1]=arr[right];
+        arr[right]=temp;
         return i+1;
     }
+    public void quickSort(int[] arr,int left,int right) {
+
+        if (left < right) {
+            int pivot =partition(arr, left, right);
+
+            quickSort(arr, left, pivot - 1);
+            quickSort(arr, pivot + 1, right);
+        }
+    }
+
 
     public static void selectionSort(int[] elements)
     {
